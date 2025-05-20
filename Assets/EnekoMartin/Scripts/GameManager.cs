@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textoTiempo;
     public GameObject panelInicioJuego;
     public DeteccionDePlanos detectorDePlanos;
+    public GameObject panelVictoria;
 
     private float tiempoRestante;
     private int gemasRecogidas = 0;
@@ -93,7 +94,13 @@ public class GameManager : MonoBehaviour
 
     void FinDelJuego()
     {
-        // Mostrar panel de fin, ir a otra escena o mostrar mensaje
         Debug.Log("Juego terminado");
+
+        if (panelVictoria != null)
+            panelVictoria.SetActive(true);
+    }
+    public void VolverAlMenu()
+    {
+        SceneManager.LoadScene("Scene0");
     }
 }
